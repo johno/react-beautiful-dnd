@@ -12,7 +12,9 @@ export default function useRegistry(): Registry {
       // clean up the registry to avoid any leaks
       // doing it after an animation frame so that other things unmounting
       // can continue to interact with the registry
-      requestAnimationFrame(registry.clean);
+      
+      // XXX: Temporary hack for Blocks to stop race condition
+      // requestAnimationFrame(registry.clean);
     };
   }, [registry]);
 
